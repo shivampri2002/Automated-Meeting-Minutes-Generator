@@ -11,7 +11,7 @@ load_dotenv()
 
 st.set_page_config(page_title="Audio & Text Summarizer", layout="wide")
 
-# Custom CSS to improve the UI
+
 st.markdown("""
 <style>
     .stApp {
@@ -63,11 +63,11 @@ def transcribe_and_summarize(file):
     return response.json()
 
 
-# Header
+
 st.markdown("<h1 class='main-header'>🎙️ Audio & Text Summarizer</h1>", unsafe_allow_html=True)
 st.write("Upload an audio file or enter text to get a transcript and summary.")
 
-# Tabs for different functionalities
+
 tab1, tab2, tab3 = st.tabs(["Audio Transcription", "Text Summarization", "Transcribe & Summarize"])
 
 with tab1:
@@ -117,7 +117,7 @@ with tab3:
                 st.write(result.get("summary", "Error in summarization"))
                 st.markdown("</div>", unsafe_allow_html=True)
 
-# Additional Features
+
 st.markdown("<h2 class='sub-header'>Additional Features</h2>", unsafe_allow_html=True)
 feature_col1, feature_col2, feature_col3 = st.columns(3)
 with feature_col1:
@@ -133,13 +133,13 @@ with feature_col3:
     st.write("✔️ User-friendly interface")
     st.write("✔️ Real-time feedback")
 
-# Feedback Section
+
 st.markdown("<h2 class='sub-header'>Feedback & Improvements</h2>", unsafe_allow_html=True)
 feedback = st.text_area("Have suggestions? Let us know!", height=100)
 if st.button("Submit Feedback", key="feedback_btn"):
     st.success("Thank you for your feedback! We appreciate your input.")
 
-# Footer
+
 st.markdown("---")
 st.markdown("Made with ❤️ by Shivam")
 

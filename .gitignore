@@ -3,3 +3,6 @@
 
 # Ignore .env files
 **/.env
+
+/frontend/app2.py
+

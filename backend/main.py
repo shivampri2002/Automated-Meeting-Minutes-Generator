@@ -39,14 +39,14 @@ class TextRequest(BaseModel):
 
 
 def transcribe_audio(file_path: str) -> str:
-    """Transcribes audio using Whisper."""
+    
     print(file_path)
     transcript = transcriber.transcribe(file_path)
     return transcript.text
 
 
 def summarize_text(text: str) -> str:
-    """Summarizes text using Gemini API."""
+    
     # prompt = f"Summarize the following text:\n{text}"
     prompt = my_constants.GEMINI_PROMPT.format(text)
     response = model.generate_content(prompt)
@@ -79,7 +79,7 @@ def summarize_text(text: str) -> str:
 #     return {"transcript": transcript}
 
 def validate_audio(file: UploadFile):
-    """Validates that the audio file is within the length and size limit."""
+    
     if file.content_type not in ["audio/mpeg", "audio/wav"]:
         raise HTTPException(
             status_code=400, detail="Unsupported audio format.")
