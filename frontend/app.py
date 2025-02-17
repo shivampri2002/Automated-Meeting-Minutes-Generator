@@ -2,8 +2,12 @@ import streamlit as st
 import requests
 import io
 from PIL import Image
+import os
+from dotenv import load_dotenv
 # import json
 
+
+load_dotenv()
 
 st.set_page_config(page_title="Audio & Text Summarizer", layout="wide")
 
@@ -40,7 +44,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-API_URL = "http://localhost:8000"  # Update with actual FastAPI server URL
+API_URL = os.getenv('RENDER_SERVER_URL') or "http://localhost:8000"  # Update with actual FastAPI server URL
+# print(API_URL)
 
 def transcribe_audio(file):
     files = {"file": (file.name, file.getvalue(), file.type)}
